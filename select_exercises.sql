@@ -15,7 +15,7 @@ where sales < 20;
 
 select * from albums
 where genre = "Rock"
---because SQL is fairly explict with and requires a contain or like function 
+--because SQL is fairly explict and requires a contain or like function 
 --to pull all sub grenes of rock as they are in the same column
 
 
