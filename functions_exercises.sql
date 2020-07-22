@@ -27,8 +27,9 @@ where birth_date like '%-12-25'
 and hire_date between '1990-01-01' and '1999-12-31'
 order by birth_date asc, hire_date desc; 
 
--- Finds the minimum salary for the company
-select min(salary)
+-- Finds the minimum and maximum salary for the company
+select min(salary) as smallest_salary,
+       max(salary) as largest_salary
 from salaries;
 
 /* Create a username that is all lowercase, and consist of: 
