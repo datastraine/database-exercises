@@ -62,7 +62,7 @@ where last_name like '%E' or last_name like 'E%'
 order by emp_no;
 
 select * from employees
-where last_name like '%E' or last_name like 'E%'
+where last_name like '%E' and last_name like 'E%'
 order by emp_no;
 
 select * from employees
