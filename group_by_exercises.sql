@@ -46,7 +46,7 @@ having count(*) > 1
 order by user_name
 
 -- Bonus: how many duplicate usernames are there? 
-select count(*) as "number_of_dupes", sum(records) as "total_number_of_dupes"
+select count(*) as "count_of_dupes", sum(records) as "sum_of_dupes"
 from 
 (select user_name, count(*) as records
 from 
