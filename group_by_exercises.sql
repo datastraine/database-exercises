@@ -36,7 +36,7 @@ order by gender;
 -- Recall the query the generated usernames for the employees from the last lesson. Are there any duplicate usernames?
 -- Yes
 select user_name, count(*) from (select lower(concat(substr(first_name, 1, 1), substr(last_name, 1, 4), "_" , 
-			 substr(birth_date, 6, 2), substr(birth_date, 3, 2)) as user_name,
+			 substr(birth_date, 6, 2), substr(birth_date, 3, 2))) as user_name,
         first_name,
         last_name,
         birth_date
