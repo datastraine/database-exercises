@@ -21,7 +21,7 @@ where last_name like '%q%'
 and last_name not like '%qu%';
 
 -- Find how many people share the previous queries last name
-select distinct(last_name), count(*) from employees
+select last_name, count(*) from employees
 where last_name like '%q%'
 and last_name not like '%qu%'
 group by last_name
