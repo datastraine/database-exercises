@@ -36,7 +36,7 @@ order by gender;
 -- Recall the query the generated usernames for the employees from the last lesson. Are there any duplicate usernames?
 -- Yes
 select user_name, count(*) from (select lower(concat(substr(first_name, 1, 1), substr(last_name, 1, 4), "_" , 
-			 substr(birth_date, 6, 2), substr(birth_date, 3, 2))) as user_name,
+			 substr(birth_date, 6, 2), substr(birth_date, 3, 2)) as user_name,
         first_name,
         last_name,
         birth_date
@@ -46,9 +46,9 @@ having count(*) > 1
 order by user_name
 
 -- Bonus: how many duplicate usernames are there? 
-select count(*)
+select count(*) as "number_of_dupes", sum(records) as "total_number_of_dupes"
 from 
-(select user_name, count(*) 
+(select user_name, count(*) as records
 from 
 	(select lower(concat(substr(first_name, 1, 1), substr(last_name, 1, 4), "_" , 
 	 substr(birth_date, 6, 2), substr(birth_date, 3, 2))) as user_name,
