@@ -57,8 +57,12 @@ and to_date > curdate();
 
 
 -- What percentage of all salaries is this?
-select 78/count(salary) * 100
-from salaries;
+select count(salary)/(select count(salary) from salaries) * 100
+from salaries
+where salary >= (select max(salary) - STD(salary)
+	 			from salaries)
+and to_date > curdate();
+
 
 /*- Bonus -*/
 
