@@ -1,9 +1,19 @@
 use employees;
 
--- Create a current employee column 
-select *,
-	  if (to_date > curdate(), true, false) as 'is_current_employee' 
-from dept_empl;
+-- Create a current employee column from
+select temp.emp_no, 
+       dept_no,
+       start_date, 
+       end_date,
+       if (end_date > curdate(), true, false) as 'is_current_employee' 
+from dept_emp
+join (select emp_no, max(from_date) as start_date, max(to_date) as end_date
+from dept_emp
+group by emp_no) temp 
+on dept_emp.emp_no = temp.emp_no
+and dept_emp.to_date = temp.end_date
+and dept_emp.from_date = temp.start_date
+;
 
 -- Create a column that groups last name by A-H, I-Q, or R-Z
 select first_name, 
